@@ -13,12 +13,7 @@ use Session;
 
 class EventController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
 
     public function index()
     {
@@ -27,11 +22,6 @@ class EventController extends Controller
         return view('events.index')->with(compact('events'));
     }
 
-    public function getEventsJson(Request $request) {
-
-        $event = event::query();
-        return DataTables::of($event)->toJson();
-    }
 
 
 
@@ -44,15 +34,16 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'type' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
             'details' => 'required',
-            'quantity' => 'required'
+            'vote_limit' => 'required',
+            'vote_cooldown' => 'required',
+            'event_organizer' => 'required'
         ]);
-
-
 
 
         $event = Event::create([
@@ -64,18 +55,12 @@ class EventController extends Controller
             'vote_cooldown' => $request->vote_cooldown,
             'event_organizer' => $request->event_organizer,
 
-
         ]);
 
-
         //event::create($request->post());
-
         return redirect()->route('events.index');
 
     }
-
-
-
 
 
 

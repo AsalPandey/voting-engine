@@ -84,14 +84,13 @@ class EventTypeController extends Controller
      */
     public function update(Request $request)
     {
+       //dd($request);
         $eventType = eventType::findOrFail($request->id);
-        $data = ($request->all());
+        $data = $request->except(['_token']);
        // dd($data);
         $eventType->update($data);
-        return redirect()->route('eventTypes.index')
-            ->with('success','Product updated successfully');
-
         Session::flash('message',config("message.messages.updated"));
+        return redirect()->route('eventTypes.index');
     }
 
     /**
@@ -106,9 +105,11 @@ class EventTypeController extends Controller
 
         $eventType = eventType::findOrFail($id);
         $eventType->delete();
-        return response()->json([
-            'success'=> true,
-            'message'=> config("message.messages.deleted"),
-        ]);
+        return redirect()->route('eventTypes.index');
+
     }
 }
+//return response()->json([
+   // 'success'=> true,
+   // 'message'=> config("message.messages.deleted"),
+//]);

@@ -20,9 +20,11 @@
                                         {{csrf_field()}}
                                         @csrf
                                         <div class="mb-3">
+                                            //edited
+                                            <input type="hidden" name="id" value="{{$eventType->id}}">
                                             <label for="exampleInputEmail1" class="form-label">Event Type</label>
                                             <input type="text" class="form-control
-                                            @error('name') is-invalid @enderror "name="eventType" value="{{$eventType->name}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            @error('name') is-invalid @enderror "name="name" value="{{$eventType->name}}" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                                             @error('name')
                                             <div class="alert alert-danger">{{ $message }}</div>
