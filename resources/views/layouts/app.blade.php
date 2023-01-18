@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{PATH}/css/alertify.min.css" />
     <!-- include a theme -->
     <link rel="stylesheet" href="{PATH}/css/themes/default.min.css" />
+
     <!-- jQuery -->
     <script src="{{asset('template/plugins/jquery/jquery.min.js')}}"></script>
 </head>
@@ -95,12 +96,12 @@
 <!-- AdminLTE App -->
 <script src="{{asset('template/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-t<script src="{{asset('template/dist/js/demo.js')}}"></script>
+<script src="{{asset('template/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('template/dist/js/pages/dashboard.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- include the script alertify -->
-<script src="{PATH}/alertify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
 </body>
 </html>

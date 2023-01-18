@@ -72,24 +72,39 @@ class EventController extends Controller
 
     public function edit($id)
     {
-        $event = event::findOrFail($id);
-        $ticketTypes = eventType::where('id',$id)->get();
-        return view('events.edit')->with(compact('event','event'));
+        $eventTypes = EventType::all();
+
+        $events = Event::findOrFail($id);
+
+       // $ticketTypes = eventType::where('id',$id)->get();
+      //  dd($events);
+        return view('events.edit')->with(compact('events','eventTypes'));
     }
 
 
 
-    public function update(Request $request, event $events)
+    public function update(Request $request )
     {
-        $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
+//        $request->validate([
 
-        $events->update($request->all());
+//            'type' => 'required',
+//            'start_date' => 'required',
+//            'end_date' => 'required',
+//            'details' => 'required',
+//            'vote_limit' => 'required',
+//            'vote_cooldown' => 'required',
+//            'event_organizer' => 'required',
+//
+//        ]);
 
-        return redirect()->route('events.index')
-            ->with('success','Product updated successfully');
+
+
+        $event = Event::findOrFail($request->id);
+        $data = $request->except(['_token']);
+        // dd($data);
+        $event->update($data);
+        Session::flash('message',config("message.messages.updated"));
+        return redirect()->route('events.index');
     }
 
 

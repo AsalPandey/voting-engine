@@ -12,10 +12,7 @@ use Session;
 
 class EventTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $eventTypes = EventType::all();
@@ -29,12 +26,7 @@ class EventTypeController extends Controller
         return view('eventTypes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
 
@@ -49,12 +41,7 @@ class EventTypeController extends Controller
         return redirect()->route('eventTypes.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
 
 
 
@@ -63,25 +50,14 @@ class EventTypeController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $eventType = eventType::findOrFail($id);
         return view('eventTypes.edit')->with(compact('eventType'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request)
     {
        //dd($request);
@@ -93,12 +69,7 @@ class EventTypeController extends Controller
         return redirect()->route('eventTypes.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
 

@@ -26,9 +26,9 @@
                                                 <label for="exampleInputEmail1" class="form-label">Type</label>
                                                 <div class="form-group">
                                                     <select class="form-control" name="type" id="exampleFormControlSelect1">
-                                                        @foreach($eventTypes as $eventType)
-                                                            <option value="{{$eventType->id}}">
-                                                                {{$eventType->name}}
+                                                        @foreach($eventTypes as $x)
+                                                            <option value="{{$x->id}}">
+                                                               {{$x->name}}
                                                             </option>
                                                         @endforeach
                                                     </select>
